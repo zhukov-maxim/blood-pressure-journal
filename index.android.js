@@ -1,53 +1,37 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
+'use strict';
 
 import React, {
   AppRegistry,
   Component,
   StyleSheet,
-  Text,
-  View
+  View,
+  ViewPagerAndroid
 } from 'react-native';
+
+import SplashScreen from './components/SplashScreen';
+import MainScreen from './components/MainScreen';
 
 class BPJ extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <ViewPagerAndroid
+        initialPage={0}
+        style={styles.pagerStyle}
+      >
+        <View style={styles.pageStyle}>
+          <SplashScreen></SplashScreen>
+        </View>
+        <View>
+          <MainScreen></MainScreen>
+        </View>
+      </ViewPagerAndroid>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  pagerStyle:  {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
 
