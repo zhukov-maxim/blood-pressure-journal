@@ -84,10 +84,10 @@ const styles = StyleSheet.create({
   },
   toolbar: {
     height: 56,
-    backgroundColor: '#F44336'
+    backgroundColor: '#f44336'
   },
   listView: {
-    backgroundColor: '#eeeeee'
+    backgroundColor: '#fff'
   },
   line: {
     padding: 16,
