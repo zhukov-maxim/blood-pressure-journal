@@ -7,6 +7,7 @@ import React, {
   StyleSheet,
   Text,
   ToolbarAndroid,
+  TouchableNativeFeedback,
   View
 } from 'react-native';
 
@@ -49,9 +50,12 @@ class MainScreen extends Component {
 
   renderLine(line) {
     return (
-      <View style={styles.line}>
-        <Text style={styles.lineText}>♡&ensp;{line.title}</Text>
-      </View>
+      <TouchableNativeFeedback
+        background={TouchableNativeFeedback.SelectableBackground()}>
+        <View style={styles.line}>
+          <Text style={styles.lineText}>♡&ensp;{line.title}</Text>
+        </View>
+      </TouchableNativeFeedback>
     );
   }
 
