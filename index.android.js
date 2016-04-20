@@ -8,14 +8,15 @@ import React, {
   ViewPagerAndroid
 } from 'react-native';
 
-import SplashScreen from './components/SplashScreen';
 import MainScreen from './components/MainScreen';
+import RecordScreen from './components/RecordScreen';
+import SplashScreen from './components/SplashScreen';
 
 class BPJ extends Component {
   render() {
     return (
       <ViewPagerAndroid
-        initialPage={0}
+        initialPage={2}
         style={styles.pagerStyle}
       >
         <View style={styles.pageStyle}>
@@ -23,6 +24,9 @@ class BPJ extends Component {
         </View>
         <View>
           <MainScreen></MainScreen>
+        </View>
+        <View>
+          <RecordScreen></RecordScreen>
         </View>
       </ViewPagerAndroid>
     );
