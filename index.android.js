@@ -8,6 +8,7 @@ import React, {
   ViewPagerAndroid
 } from 'react-native';
 
+import ConfirmationScreen from './components/ConfirmationScreen';
 import MainScreen from './components/MainScreen';
 import RecordScreen from './components/RecordScreen';
 import SplashScreen from './components/SplashScreen';
@@ -16,7 +17,7 @@ class BPJ extends Component {
   render() {
     return (
       <ViewPagerAndroid
-        initialPage={2}
+        initialPage={3}
         style={styles.pagerStyle}
       >
         <View style={styles.pageStyle}>
@@ -27,6 +28,9 @@ class BPJ extends Component {
         </View>
         <View>
           <RecordScreen></RecordScreen>
+        </View>
+        <View>
+          <ConfirmationScreen></ConfirmationScreen>
         </View>
       </ViewPagerAndroid>
     );
