@@ -1,12 +1,10 @@
 'use strict';
 
 import React, {
-  AppRegistry,
   Component,
   ListView,
   StyleSheet,
   Text,
-  ToolbarAndroid,
   TouchableNativeFeedback,
   View
 } from 'react-native';
@@ -62,10 +60,6 @@ class MainScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ToolbarAndroid
-          title='Blood Pressure Journal'
-          style={styles.toolbar}
-        />
         <View style={styles.containerInner}>
           <ListView
             dataSource={this.state.dataSource}
@@ -85,10 +79,6 @@ const styles = StyleSheet.create({
   containerInner: {
     flex: 1,
     justifyContent: 'center',
-  },
-  toolbar: {
-    height: 56,
-    backgroundColor: '#f44336'
   },
   listView: {
     backgroundColor: '#fff'
