@@ -2,12 +2,35 @@
 
 import React, {
   Component,
+  Image,
   ListView,
   StyleSheet,
   Text,
   TouchableNativeFeedback,
   View
 } from 'react-native';
+
+import { setTheme, MKButton, MKColor } from 'react-native-material-kit';
+
+setTheme({
+  primaryColor: '#f44336',
+  accentColor: '#03a9f4',
+});
+
+var accentColoredFabProps = {
+  ...MKButton.accentColoredFab().toProps(),
+  style: {
+    position: 'absolute',
+    right: 16,
+    bottom: 16,
+    width: 56,
+    height: 56,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cornerRadius: 28,
+};
 
 class MainScreen extends Component {
   constructor(props) {
@@ -67,6 +90,9 @@ class MainScreen extends Component {
             style={styles.listView}
           />
         </View>
+        <MKButton {...accentColoredFabProps}>
+          <Image source={require('./pencil.png')} />
+        </MKButton>
       </View>
     );
   }
