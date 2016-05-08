@@ -6,6 +6,9 @@ import React, {
   ToolbarAndroid,
   View
 } from 'react-native';
+import { connect } from 'react-redux';
+
+import * as actions from '../actions/actions'
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
@@ -15,7 +18,17 @@ import RecordScreen from './RecordScreen';
 import SplashScreen from './SplashScreen';
 
 class BloodPressureJournal extends Component {
-  render() {
+  onSplashPress() {
+    this.props.dispatch(actions.loadCompleted());
+  }
+
+  renderSplashScreen() {
+    return (
+      <SplashScreen onPress={() => this.onSplashPress()}/>
+    );
+  }
+
+  renderApp() {
     return (
       <View style={styles.container}>
         <ToolbarAndroid
@@ -31,6 +44,16 @@ class BloodPressureJournal extends Component {
           <RecordScreen tabLabel='RecordScreen'/>
         </ScrollableTabView>
       </View>
+    );
+  }
+
+  render() {
+    const isLoading = this.props.isLoading;
+
+    return (
+      isLoading ?
+        this.renderSplashScreen() :
+        this.renderApp()
     );
   }
 }
@@ -54,4 +77,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BloodPressureJournal;
+function mapStateToProps(state) {
+  return {
+    isLoading: state.isLoading
+  }
+}
+
+export default connect(mapStateToProps)(BloodPressureJournal);
